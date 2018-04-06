@@ -37,6 +37,7 @@ GameStates.makePreloader = function( game ) {
             game.load.image('tower', 'assets/Game Assets/tower.png');
             game.load.image('farm', 'assets/Game Assets/farm.png');
             game.load.image('armory', 'assets/Game Assets/armory.png');
+            game.load.audio('background_music', 'assets/Game Assets/background_music.mp3');
 
 
             //game.load.audio('block_open', 'assets/Game Assets/block_open.mp3');

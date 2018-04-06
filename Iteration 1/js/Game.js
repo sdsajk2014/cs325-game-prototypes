@@ -1,7 +1,8 @@
 "use strict";
 
 GameStates.makeGame = function( game, shared ) {
-    
+
+    var background_music;
     var grass;
     var player;
     var facing;
@@ -30,6 +31,7 @@ GameStates.makeGame = function( game, shared ) {
         create: function () 
         {
         	game.physics.startSystem(Phaser.Physics.ARCADE);
+            background_music = game.add.audio('background_music');
 
         	this.createbackground();
         	
@@ -56,6 +58,7 @@ GameStates.makeGame = function( game, shared ) {
     		firekey = game.input.keyboard.addKey(Phaser.Keyboard.J);
 
     		game.camera.follow(player);
+            background_music.play();
         },
 
         createbackground()
@@ -304,6 +307,9 @@ GameStates.makeGame = function( game, shared ) {
     
         update: function () 
         {
+            if(!background_music.isPlaying && player.alive)
+               background_music.play(); 
+                
     		this.collidecheck();
     		this.controllistener();
             this.enemiesmove();
